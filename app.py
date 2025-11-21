@@ -9,7 +9,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-app.secret_key = os.getenv("fenomeno")
+app.secret_key = os.getenv
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
@@ -120,3 +120,4 @@ def strive():
 if __name__ == '__main__':
 
     app.run(debug=True)
+

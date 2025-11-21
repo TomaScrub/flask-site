@@ -14,15 +14,14 @@ app.secret_key = os.getenv("fenomeno")
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.getenv('frasermclauchlan18@gmail.com')
-app.config['MAIL_PASSWORD'] = os.getenv('axzg btvs nhkp cgyr')
-app.config['MAIL_DEFAULT_SENDER'] = os.getenv('frasermclauchlan18@gmail.com')
+app.config['MAIL_USERNAME'] = os.getenv
+app.config['MAIL_PASSWORD'] = os.getenv
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv
 
 mail = Mail(app)
 
-ADMIN_USERNAME = os.getenv("admin")
-ADMIN_PASSWORD_HASH = os.getenv("scrypt:32768:8:1$RiNQTOT4obUeIhov$cf4f1b011853dee986d44fa7ec898ce901a243aac3920d881e6745ee438f1b8563377beffc00c12cb4561135dd1194bb080b0ad357d5ea09ce561563039d353b")
-
+ADMIN_USERNAME = os.getenv
+ADMIN_PASSWORD_HASH = os.getenv
 
 init_db()
 
@@ -119,4 +118,5 @@ def strive():
 
 
 if __name__ == '__main__':
+
     app.run(debug=True)

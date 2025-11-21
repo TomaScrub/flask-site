@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Admin Panel{% endblock %}
+{% block content %}
+<h2>📩 Messages</h2>
+
+<a href="{{ url_for('admin_logout') }}">Logout</a><br><br>
+
+<table border="1" cellpadding="10" style="margin:auto;">
+    <tr>
+        <th>ID</th><th>Name</th><th>Email</th><th>Message</th><th>Action</th>
+    </tr>
+
+    {% for msg in messages %}
+    <tr>
+        <td>{{ msg[0] }}</td>
+        <td>{{ msg[1] }}</td>
+        <td>{{ msg[2] }}</td>
+        <td>{{ msg[3] }}</td>
+        <td><a href="{{ url_for('delete', message_id=msg[0]) }}">🗑 Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

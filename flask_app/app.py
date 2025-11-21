@@ -2,24 +2,26 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_mail import Mail, Message
 from database import save_message, init_db, get_messages, delete_message
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
+
 app = Flask(__name__)
-app.secret_key = "fenomeno"
+
+app.secret_key = os.getenv("fenomeno")
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'frasermclauchlan18@gmail.com'
-app.config['MAIL_PASSWORD'] = 'axzg btvs nhkp cgyr'
-app.config['MAIL_DEFAULT_SENDER'] = 'frasermclauchlan18@gmail.com'
+app.config['MAIL_USERNAME'] = os.getenv('frasermclauchlan18@gmail.com')
+app.config['MAIL_PASSWORD'] = os.getenv('axzg btvs nhkp cgyr')
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv('frasermclauchlan18@gmail.com')
 
 mail = Mail(app)
 
-ADMIN_USERNAME = "admin"
-
-
-ADMIN_PASSWORD_HASH = "scrypt:32768:8:1$RiNQTOT4obUeIhov$cf4f1b011853dee986d44fa7ec898ce901a243aac3920d881e6745ee438f1b8563377beffc00c12cb4561135dd1194bb080b0ad357d5ea09ce561563039d353b"
+ADMIN_USERNAME = os.getenv("admin")
+ADMIN_PASSWORD_HASH = os.getenv("scrypt:32768:8:1$RiNQTOT4obUeIhov$cf4f1b011853dee986d44fa7ec898ce901a243aac3920d881e6745ee438f1b8563377beffc00c12cb4561135dd1194bb080b0ad357d5ea09ce561563039d353b")
 
 
 init_db()
